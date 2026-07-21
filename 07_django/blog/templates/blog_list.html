@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#3 templates</title>
+</head>
+<body>
+   <h1> hello this is tags in templates </h1>
+   <p> {{today}} </p>
+   <hr>
+
+   {% comment %} template tags (control flow) {% endcomment %}
+   {% comment %} if , else and endif tags {% endcomment %}
+
+   {% if blog.0.is_featured %}
+   <p> featued title : {{blog.0.title}} </p>
+   {% else %}
+   <p> not featured title : {{blog.0.title}} </p>
+   {% endif %}
+   {% if blog.1.is_featured %}
+   <p> featued title : {{blog.1.title}} </p>
+   {% else %}
+   <p> not featured title : {{blog.1.title}} </p>
+   {% endif %}
+   <hr>
+
+   {% comment %} with tag {% endcomment %}
+   {% for blog in blog %}
+   <li> {{forloop.counter}}. {{blog.title}} - {{blog.author}} </li>
+   {% empty %}
+   <p> there is nothing in {{blog}}. </p>
+   {% endfor %}
+   <hr>
+
+   {% comment %} with tag {% endcomment %}
+   {% with total_blog=blog|length %}
+   <p> blog : {{total_blog}} </p>
+   {% endwith %}
+   <hr>
+
+   {% comment %} cycle tag {% endcomment %}
+   <h2> blogs in table </h2>
+   <table border="1" cellpadding="5" cellspacing="0">
+     {% for blog in blog %}
+       <tr style="background-color: {% cycle 'lightblue' 'lightgreen' %};">
+       <td>{{forloop.counter}}</td>
+       <td>{{blog.title}} </td>
+       <td>{{blog.isfeatured}} </td>
+       <td>{{blog.author}} </td>
+       </tr>
+     {% endfor %}
+    </table>
+    <hr>
+
+    {% comment %} date format {% endcomment %}
+    <p> now : {% now 'H-i' %} </p>
+    {% comment %} first of  {% endcomment %}
+    <p>author :  {% firstof blog.1.author "james" %} </p>
+    {% comment %} verbatim (it ignores templates parsing) {% endcomment %}
+    {% verbatim %}
+    <p> author : {{blog.1.author}} </p>
+    {% endverbatim %}
+    {% comment %} authoscape , it works like "| safe" {% endcomment %}
+    {% autoescape off%}
+    <p> {{html_code}} </p>
+    {% endautoescape %}
+
+</body>
+</html>
