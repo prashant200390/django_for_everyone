@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#2 templates</title>
+</head>
+<body>
+    <h1> Blogfilter page </h1>
+
+    {% comment %} yesno and plural filters {% endcomment %}
+    <p> <b>author :</b> {{post.author|yesno:'yes,no,maybe'}} </p>
+    <p> comment : {{post.comment_count}} comment{{post.comment_count|pluralize}} </p>
+    <hr>
+
+    {% comment %} date/time filters {% endcomment %}
+    <p> Date and time : {{post.created_at}} </p>
+    <p> Formated date : {{post.created_at|date:"D d m y"}} </p>
+    <p> Formated time : {{post.created_at|time:"H:i"}} </p>
+    <p> Timesince : {{post.created_at|timesince}} </p>
+    <p> Timeuntil : {{post.created_at|timeuntil }} </p>
+    <hr>
+    {% comment %} encoding and formatting {% endcomment %}
+    <p> Encoding title : {{post.title|urlencode}} </p>
+    <p> Float formatting : {{123.56489|floatformat:2}} </p>
+
+     {% comment %} learning text filters  {% endcomment %}
+     <hr>
+     <p>1. <b>text filters</b></p>
+     <p> <b>title (normal)</b>: {{post.title}} </p>
+     <p> Upper : {{post.title|upper}} </p>
+     <p> lower : {{post.title|lower}} </p>
+     <p> title : {{post.title|title}} </p>
+     <p> capfirst : {{post.description|capfirst}} </p>
+     <p> Trancetchar :{{post.description|truncatechars:20}}</p>
+     <p> Trancetword :{{post.description|truncatewords:2}}</p>
+     <p> <b>linebreak</b> : {{post.description|linebreaks}} </p>
+     <hr>
+
+     {% comment %} number filters {% endcomment %}
+     <h3> <b>number filters : </b> </h3>
+     <p> <b> original price </b> {{post.price}} </p>
+     <p> <b> final after add : (+5) : </b> {{post.price|add:5}} </p>
+     <p><b>original number:</b> {{post.number}} </p>
+     {% comment %} divisibleby {% endcomment %}
+     {% if post.number|divisibleby:2 %}
+      <p> <b>{{post.number}} number is even </b> </p>
+     {% else %}
+     <p> <b> {{post.number}} number is odd </b> </p>
+     {% endif %}
+
+     {% comment %} list filters {% endcomment %}
+     <p> <b> original list : </b> {{post.tags}} </p>
+     <p> <b> length of list : </b> {{post.tags|length}} </p>
+     <p> <b> first of list : </b> {{post.tags|first}} </p>
+     <p> <b> last of list : </b> {{post.tags|last}} </p>
+     <p> <b> slice of list : </b> {{post.tags|slice:":2"}} </p>
+     <p> <b> join of list : </b> {{post.tags|join:", "}} </p>
+      
+</body>
+</html>
