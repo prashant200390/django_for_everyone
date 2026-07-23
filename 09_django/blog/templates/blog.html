@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %} home page {% endblock %}
+{% block content %}
+<p> this is the home page on root. </p>
+{% regroup students by class as group_of_students %}
+  {% for group in group_of_students %}
+   <li>Class:{{group.grouper}}
+     <ul>
+        {% for student in group.list %}
+        <li>{{student.name}}</li>
+        {% endfor %}
+     </ul>
+    </li>
+    {% endfor %}
+    <p> 
+    <b>progress :</b> {% widthratio 50 100 100 %}
+    </p>
+    {% spaceless %}
+    <span> hello !  </span>
+    <span> this is example of spaceless </span>
+    {% endspaceless %}
+    {% filter upper %}
+    <p> this is going to be uppercase in site </p>
+    {% endfilter %}
+    {% for student in students %}
+    <p> {{student.name|lower}} is in {{student.class|add:"class"}}</p>
+    {% endfor %}
+{% endblock %}
