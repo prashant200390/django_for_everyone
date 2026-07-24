@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+<body>
+    {% filter upper %}
+    <h1>blog page </h1>
+    {% endfilter %}
+    {% comment %} cdn {% endcomment %}
+    <button class="bg-blue-500 ...">Button A</button>
+    <button class="bg-cyan-500 ...">Button B</button>
+    <button class="bg-pink-500 ...">Button C</button>
+    <p> this is a blog page </p>
+</body>
+</html>
