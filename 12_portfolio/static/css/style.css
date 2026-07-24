@@ -1,0 +1,167 @@
+/* --- Global Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+/* --- Navigation Bar (.header) --- */
+.header {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.header .logo {
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.header nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.header nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.header nav a:hover {
+    color: #007bff;
+}
+
+/* --- Hero Section --- */
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+    background: #007bff;
+    color: white;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+/* --- Projects Section --- */
+.projects h2 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    border-bottom: 2px solid #007bff;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.project-card {
+    background: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    text-align: center;
+    padding-bottom: 15px;
+    transition: transform 0.2s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.project-card h3 {
+    margin-top: 10px;
+    font-size: 1.1rem;
+}
+
+/* --- About & Contact Sections --- */
+.about, .contact {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+    max-width: 500px;
+}
+
+.contact input, .contact textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.contact button {
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.contact button:hover {
+    background-color: #0056b3;
+}
+
+/* --- Footer --- */
+.footer {
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: auto;
+}
+
+.hero {
+    text-align: center;
+    background: none;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.hero-img {
+    width: 100%;
+    max-height: 350px;
+    object-fit: contain; /* Displays the hero image cleanly without stretching */
+    border-radius: 8px;
+}
